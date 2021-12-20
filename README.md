@@ -3,5 +3,7 @@ Just a simple implementation of **NTRU** which is one of the **Round-3 Finalists
 
 For simple implementation, `sympy` is used for polynomial. So for the larger polynomial rings, this might needs more works. `numpy` is also needed for this to run.
 
+At the moment, there is only **NTRUEncrypt**, **NTRUSign** might be there soon.
+
 Command line :
 - 
