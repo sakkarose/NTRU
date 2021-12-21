@@ -7,7 +7,4 @@ This is just for studying purposes so the code can be unoptimized and outputs wi
 
 At the moment, there is only **NTRUEncrypt** (+ **NTRUDecrypt**), **NTRUSign** might be there any time soon.
 
-Command line :
-- Generate key :
-- NTRUEncrypt :
-- NTRUDecrypt :
+- More details are in the main file.
