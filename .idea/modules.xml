@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/NTRU.iml" filepath="$PROJECT_DIR$/.idea/NTRU.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../NTRU_python/.idea/NTRU_python.iml" filepath="$PROJECT_DIR$/../NTRU_python/.idea/NTRU_python.iml" />
     </modules>
   </component>
 </project>
