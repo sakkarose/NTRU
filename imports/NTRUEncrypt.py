@@ -1,8 +1,8 @@
-# import sys
+import sys
 
 import numpy as np
-# import numpy as npy
-# from sympy import Poly, symbols
+import numpy as npy
+from sympy import Poly, symbols
 from imports.Utilities import *
 
 
@@ -81,12 +81,12 @@ class NTRUEncrypt:
             if len(m) > self.N:
                 sys.exit("\n\nError : Polynomial message of degree >= N")
             self.m = m
-            x = symbols('x')
-            # Encrypting part
-            self.e = np.array(
-                ((((Poly(self.r, x) * Poly(self.h, x)).trunc(self.q)) + Poly(self.m, x)) % Poly(self.I, x)).trunc(
-                    self.q).all_coeffs(), dtype=int)
-            self.e = padArray(self.e, self.N)
+        x = symbols('x')
+        # Encrypting part
+        self.e = np.array(
+            ((((Poly(self.r, x) * Poly(self.h, x)).trunc(self.q)) + Poly(self.m, x)) % Poly(self.I, x)).trunc(
+            self.q).all_coeffs(), dtype=int)
+        self.e = padArray(self.e, self.N)
 
     def encryptString(self, M):
         if not self.readKey:

@@ -1,24 +1,18 @@
-# import sys
+import sys
+from datetime import datetime
 from os.path import exists
 
 import argparse
 from argparse import RawTextHelpFormatter
 
-# import numpy as numpy
+import numpy as npy
 
 from imports.NTRUEncrypt import NTRUEncrypt
 from imports.NTRUDecrypt import NTRUDecrypt
 from imports.Utilities import *
 
-prog_description = """
-"""
-
-prog_epilog = """
-"""
-
 # Add input arguments
-prs = argparse.ArgumentParser(prog="NTRUEncrypt & NTRUDecrypt", description=prog_description, epilog=prog_epilog,
-                              formatter_class=RawTextHelpFormatter)
+prs = argparse.ArgumentParser(prog="NTRUEncrypt & NTRUDecrypt", formatter_class=RawTextHelpFormatter)
 prs.add_argument("-k", "--key-name", default="key", type=str, help="Filename of the public and private keys.\n")
 prs.add_argument("-G", "--Gen", action="store_true", help="Generate the public and private key files.\n")
 prs.add_argument("-M", "--moderate_sec", action="store_true",
@@ -47,6 +41,7 @@ args = prs.parse_args()
 if __name__ == "__main__":
     # Generate public and private keys with input flags
     if args.Gen:
+        start = datetime.now()
         a = NTRUDecrypt()
 
         # Set parameters
@@ -58,8 +53,10 @@ if __name__ == "__main__":
             a.setVariables(N=167, p=3, q=128, df=61, dg=20, d=18)
 
         a.genPubPri(args.key_name)
+        print('Time generating both keys: ', datetime.now() - start)
+        start = 0
 
-    # Encrypt data using given public key
+        # Encrypt data using given public key
     elif args.Enc_string or args.Enc_file:
         # Check if public key exists
         if not exists(args.key_name + ".pub"):
@@ -73,6 +70,7 @@ if __name__ == "__main__":
         if not args.out_file and not args.out_in_term:
             sys.exit("Error : Missing output method.")
 
+        start = datetime.now()
         # Initialise encryption class
         b = NTRUEncrypt()
 
@@ -92,6 +90,8 @@ if __name__ == "__main__":
 
         # Encrypt data
         b.encryptString(to_encrypt)
+        print('Time encrypting data: ', datetime.now() - start)
+        start = 0
 
         # Output the encrypted data
         if args.out_in_term:
@@ -116,6 +116,7 @@ if __name__ == "__main__":
         if not args.out_file and not args.out_in_term:
             sys.exit("Error : At least one output method must be specified.")
 
+        start = datetime.now()
         # Then initialise a decryption class
         D = NTRUDecrypt()
 
@@ -135,6 +136,8 @@ if __name__ == "__main__":
 
         # Then decrypt the string
         D.decryptString(to_decrypt)
+        print('Time decrypting data: ', datetime.now() - start)
+        start = 0
 
         # And output the decrypted data
         if args.out_in_term:

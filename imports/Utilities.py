@@ -117,5 +117,4 @@ def bit2String(bit):
             charbit = a[-(i + 1)*8 : -i * 8]
         charbit = int (charbit, 2)
         characterOut = charbit.to_bytes((charbit.bit_length() + 7) //8, "big").decode("utf-8", errors = "ignore") + characterOut
-
-
+    return characterOut

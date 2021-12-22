@@ -1,7 +1,7 @@
-# import sys
-# import numpy as npy
-# from math import log, gcd
-# from sympy import Poly, symbols
+import sys
+import numpy as npy
+from math import log, gcd
+from sympy import Poly, symbols
 from imports.Utilities import *
 
 
@@ -125,7 +125,7 @@ class NTRUDecrypt:
         self.g = generateRandom1n0(self.N, self.dg, self.dg)
         # Generate f with inverses mod p and mod q
         for i in range(maxTries):
-            self.f = generateRandom1n0(self.N, self.df, self.dg - 1)
+            self.f = generateRandom1n0(self.N, self.df, self.df - 1)
             invf_try = self.invertf()
             if invf_try:
                 break
