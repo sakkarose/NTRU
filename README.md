@@ -6,6 +6,6 @@ For simple implementation, `sympy` is used for polynomial. So for the larger pol
 This is just for studying purposes so the code can be unoptimized and outputs will be uncompressed. Do not use this for actual cryptographic uses.
 
 At the moment, there is only **NTRUEncrypt** (+ **NTRUDecrypt**), **NTRUSign** might be there any time soon.
-- Still not finished yet, I'm trying the post-quantum parameters which are **NTRU-443** and **NTRU-743**. For **NTRU-1024**, I might need some more time.
+- Still not finished yet, I'm trying the post-quantum parameters which are from IEEE p1363.1.
 
 - More details will be added when this one is finished.
