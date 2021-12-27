@@ -8,4 +8,4 @@ This is just for studying purposes so the code can be unoptimized and outputs wi
 At the moment, there is only **NTRUEncrypt** (+ **NTRUDecrypt**), **NTRUSign** might be there any time soon.
 - Still not finish, i'm trying newest parameters.
 
-- More details are in the main file.
+- More details will be added when this one is finished.
