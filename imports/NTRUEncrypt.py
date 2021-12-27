@@ -1,6 +1,5 @@
 import sys
 
-import numpy as np
 import numpy as npy
 from sympy import Poly, symbols
 from imports.Utilities import *
@@ -83,7 +82,7 @@ class NTRUEncrypt:
             self.m = m
         x = symbols('x')
         # Encrypting part
-        self.e = np.array(
+        self.e = npy.array(
             ((((Poly(self.r, x) * Poly(self.h, x)).trunc(self.q)) + Poly(self.m, x)) % Poly(self.I, x)).trunc(
             self.q).all_coeffs(), dtype=int)
         self.e = padArray(self.e, self.N)

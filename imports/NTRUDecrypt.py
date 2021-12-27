@@ -130,7 +130,7 @@ class NTRUDecrypt:
             if invf_try:
                 break
             elif i == maxTries - 1:
-                sys.exit("Can't generated inverses of f")
+                sys.exit("Couldn't generate inverses of f")
 
     # Generate public key from values
     def genPub(self):
@@ -162,7 +162,7 @@ class NTRUDecrypt:
             self.df) + "\ndg ::: " + str(self.dg) + "\nd ::: " + str(self.oneofr) + "\nf/fp/fq/g :::"
         npy.savetxt(filename + ".pri", (self.f, self.fp, self.fq, self.g), header=priHead, newline="\n", fmt="%s")
 
-    # Read public key
+    # Read private key
     def readPri(self, filename="key.pri"):
         with open(filename, "r") as f:
             self.p = int(f.readline().split(" ")[-1])
