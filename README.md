@@ -11,9 +11,9 @@ At the moment, there is only **NTRUEncrypt** (& **NTRUDecrypt**), **NTRUSign** m
   - `-S4`  : Optimized for size.
   - `-C4`  : Optimized for cost.
   - `-F4`  : Optimized for speed.
-- Moderate security : S3, C3, F3
-- Low security : S2, C2, F2
-- Lowest security : S1, C1, F1
+- Moderate security : `-S3`, `-C3`, `-F3`
+- Low security : `-S2`, `-C2`, `-F2`
+- Lowest security : `-S1`, `-C1`, `-F1`
 
 | Parameter Set  | N | p | d | dg  | df | dr  |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
