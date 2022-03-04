@@ -21,7 +21,7 @@ At the moment, there is only **NTRUEncrypt** (& **NTRUDecrypt**), **NTRUSign** m
 
 - If you don't pick parameter, it will use the default parameter which is `F4`.
 
-| Parameter Set  | N | p | d | dg  | df | dr  |
+| Parameter Set  | N | p | q | dg  | df | dr  |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **(S1)** ees401ep1  | 401  | 3  | 2048  | 133  | 113  | 113  |
 | **(S2)** ees449ep1  | 449  | 3  | 2048  | 149  | 134  | 134  |
