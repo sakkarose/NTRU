@@ -4,6 +4,11 @@ Just a simple implementation of **NTRU** which is one of the **Round-3 Finalists
 
 At the moment, there is only **NTRUEncrypt** (& **NTRUDecrypt**), **NTRUSign** might be there any time soon.
 
+## Installation
+- No installation needed, but you need to have `sympy` and `numpy` in python.
+- After that you can run the program by executing the `main.py` file .
+- Also pypy3 is optional.
+
 ## Generating Keys
 ### Parameters [2]
 
