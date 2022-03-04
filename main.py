@@ -39,15 +39,15 @@ prs.add_argument("-F2", action="store_true",
                  help="Generate low security keys with speed optimized.\n")
 prs.add_argument("-F1", action="store_true",
                  help="Generate lowest security keys with speed optimized.\n")
-prs.add_argument("-N", "--N", default=167, type=int, help="The order of the polynomial ring. Default is 503.\n")
+prs.add_argument("-N", "--N", default=1499, type=int, help="The order of the polynomial ring. Default is 1499.\n")
 prs.add_argument("-p", "--p", default=3, type=int, help="The smallest inverse polynomial modulus. Default is 3.\n")
-prs.add_argument("-q", "--q", default=128, type=int, help="The largest inverse polynomial modulus. Default is 256.\n")
-prs.add_argument("-df", "--df", default=61, type=int, help="Polynomial f has df 1's and df -1's. Default is 61.\n")
-prs.add_argument("-dg", "--dg", default=20, type=int, help="Polynomial g has dg 1's and -1's. Default is 20.\n")
-prs.add_argument("-dr", "--dr", default=18, type=int,
-                 help="Random obfuscating polynomial has d 1's and -1's. Default 18.\n")
+prs.add_argument("-q", "--q", default=2048, type=int, help="The largest inverse polynomial modulus. Default is 2048.\n")
+prs.add_argument("-df", "--df", default=499, type=int, help="Polynomial f has df 1's and df -1's. Default is 499.\n")
+prs.add_argument("-dg", "--dg", default=79, type=int, help="Polynomial g has dg 1's and -1's. Default is 79.\n")
+prs.add_argument("-dr", "--dr", default=79, type=int,
+                 help="Random polynomial has d 1's and -1's. Default 79.\n")
 prs.add_argument("-O", "--out_file", type=str, help="Output file for encrypted/decrypted data/string.\n")
-prs.add_argument("-T", "--out_in_term", action="store_true",
+prs.add_argument("-T", "--out_term", action="store_true",
                  help="Output encrypted/decrypted data/string to terminal.\n")
 # String must be given in quotation marks for -eS and -dS
 # -dS and -dF require a known public key
