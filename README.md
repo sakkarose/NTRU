@@ -15,6 +15,8 @@ At the moment, there is only **NTRUEncrypt** (& **NTRUDecrypt**), **NTRUSign** m
 - Low security : `-S2`, `-C2`, `-F2`
 - Lowest security : `-S1`, `-C1`, `-F1`
 
+- If you don't pick parameter, it will use the default parameter which is `F4`.
+
 | Parameter Set  | N | p | d | dg  | df | dr  |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **(S1)** ees401ep1  | 401  | 3  | 2048  | 133  | 113  | 113  |
