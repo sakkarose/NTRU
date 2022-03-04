@@ -40,14 +40,26 @@ At the moment, there is only **NTRUEncrypt** (& **NTRUDecrypt**), **NTRUSign** m
 - To generate keys. We run the `main.py` with parameter `-g`.
 - To change file name of the keys. We add parameter `-k`. (Default is `ntru`).
 ### Example
-- To generate public and private keys with high security, optimized for speed and named "test_key"
+- To generate public and private keys with high security, optimized for speed and named "test_key".
 ```
 python3 main.py -F4 -g -k test_key
 ```
+- To generate keys with your own parameters.
+```
+python3 main.py -g -N 1499 -p 3 -q 2048 -dg 499 -df 79 -dr 79
+```
 ## Encrypting
-
+- 
+### Example
+-
+```
+```
 ## Decrypting
-
+-
+### Example
+-
+```
+```
 ## Notes
 - This is only just PKE, I will start on KEM later.
 - More details will be added when this one is finished.
