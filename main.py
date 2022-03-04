@@ -45,12 +45,30 @@ if __name__ == "__main__":
         a = NTRUDecrypt()
 
         # Set parameters
-        if args.moderate_sec:
-            a.setVariables(N=107, p=3, q=64, df=15, dg=12, d=5)
-        elif args.highest_sec:
-            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=55)
+        if args.s1:
+            a.setVariables(N=401, p=3, q=64, df=15, dg=12, d=2048)
+        elif args.s2:
+            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
+        elif args.s3:
+            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
+        elif args.s4:
+            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
+        elif args.c1:
+            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
+        elif args.c2:
+            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
+        elif args.c3:
+            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
+        elif args.c4:
+            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
+        elif args.f1:
+            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
+        elif args.f2:
+            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
+        elif args.f3:
+            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
         else:
-            a.setVariables(N=167, p=3, q=128, df=61, dg=20, d=18)
+            a.setVariables(N=167, p=3, q=128, df=61, dg=20, d=2048)
 
         a.genPubPri(args.key_name)
         print('Time generating both keys: ', datetime.now() - start)

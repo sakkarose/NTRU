@@ -6,14 +6,14 @@ from imports.Utilities import *
 
 
 class NTRUEncrypt:
-    def __init__(self, N=503, p=3, q=256, d=18):
+    def __init__(self, N=503, p=3, q=256, dr=18):
         # Public N, p and q
         self.N = N
         self.p = p
         self.q = q
 
         # Number of 1s in r
-        self.oneofr = d
+        self.oneofr = dr
 
         # Private key polynomial g
         self.g = npy.zeros((self.N,), dtype=int)
