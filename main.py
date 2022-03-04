@@ -58,7 +58,7 @@ prs.add_argument("-df", "--de_file", type=str, help="Decrypt the string given in
 args = prs.parse_args()
 if __name__ == "__main__":
     # Generate public and private keys with input flags
-    if args.Gen:
+    if args.key_gen:
         start = datetime.now()
         a = NTRUDecrypt()
 
@@ -93,17 +93,17 @@ if __name__ == "__main__":
         start = 0
 
         # Encrypt data using given public key
-    elif args.Enc_string or args.Enc_file:
+    elif args.en_str or args.en_file:
         # Check if public key exists
         if not exists(args.key_name + ".pub"):
             sys.exit("Error : Public key '" + args.key_name + ".pub' not found.")
 
         # One input to encrypt
-        if args.Enc_string and args.Enc_file:
+        if args.en_str and args.en_file:
             sys.exit("Error : More than one input is given.")
 
         # Output method specified
-        if not args.out_file and not args.out_in_term:
+        if not args.out_file and not args.out_term:
             sys.exit("Error : Missing output method.")
 
         start = datetime.now()
@@ -114,14 +114,14 @@ if __name__ == "__main__":
         b.readpubK(args.key_name + ".pub")
 
         # Extract data to encrypt
-        if args.es:
+        if args.en_str:
             to_encrypt = args.es
-        elif args.ef:
+        elif args.en_file:
             # Check if the file exists
-            if not exists(args.ef):
-                sys.exit("Error : Input file '" + args.ef + "' not found.")
+            if not exists(args.en_file):
+                sys.exit("Error : Input file '" + args.en_file + "' not found.")
             # If it does then read all the data from it
-            with open(args.ef, "r") as f:
+            with open(args.en_file, "r") as f:
                 to_encrypt = "".join(f.readlines())
 
         # Encrypt data
@@ -138,18 +138,18 @@ if __name__ == "__main__":
                 f.write(b.saveM)
 
     # Decrypt data from private key
-    elif args.Dec_string or args.Dec_file:
+    elif args.de_str or args.de_file:
 
         # Check if the private key file exists
         if not exists(args.key_name + ".pri"):
             sys.exit("Error : Public key '" + args.key_name + ".pri' not found.")
 
         # One input to decrypt only
-        if args.Dec_string and args.Dec_file:
+        if args.de_string and args.de_file:
             sys.exit("Error : More than one input to decrypt given.")
 
         # We need an output method specified
-        if not args.out_file and not args.out_in_term:
+        if not args.out_file and not args.out_term:
             sys.exit("Error : At least one output method must be specified.")
 
         start = datetime.now()
@@ -160,14 +160,14 @@ if __name__ == "__main__":
         D.readPri(args.key_name + ".pri")
 
         # Extract the data to decrypt
-        if args.Dec_string:
-            to_decrypt = args.Dec_string
-        elif args.Dec_file:
+        if args.de_string:
+            to_decrypt = args.de_string
+        elif args.de_file:
             # Need to check if the file exists
-            if not exists(args.Dec_file):
-                sys.exit("Error : Input file '" + args.Dec_file + "' not found.")
+            if not exists(args.de_file):
+                sys.exit("Error : Input file '" + args.de_file + "' not found.")
             # If it does then read all the data from it
-            with open(args.Dec_file, "r") as f:
+            with open(args.de_file, "r") as f:
                 to_decrypt = "".join(f.readlines())
 
         # Then decrypt the string
@@ -176,7 +176,7 @@ if __name__ == "__main__":
         start = 0
 
         # And output the decrypted data
-        if args.out_in_term:
+        if args.out_term:
             print(D.saveM)
         elif args.out_file:
             # Write data to output file
