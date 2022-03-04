@@ -9,8 +9,7 @@ At the moment, there is only **NTRUEncrypt** (& **NTRUDecrypt**), **NTRUSign** m
 - After that you can run the program by executing the `main.py` file .
 - Also pypy3 is optional.
 
-## Generating Keys
-### Parameters [2]
+## Parameters [2]
 
 - High security
   - `-S4`  : Optimized for size.
@@ -22,7 +21,7 @@ At the moment, there is only **NTRUEncrypt** (& **NTRUDecrypt**), **NTRUSign** m
 
 - If you don't pick parameter, it will use the default parameter which is `F4`.
 
-| Parameter Set  | N | p | d | dg  | df | dr  |
+| Parameter Set  | N | p | q | dg  | df | dr  |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **(S1)** ees401ep1  | 401  | 3  | 2048  | 133  | 113  | 113  |
 | **(S2)** ees449ep1  | 449  | 3  | 2048  | 149  | 134  | 134  |
@@ -37,7 +36,17 @@ At the moment, there is only **NTRUEncrypt** (& **NTRUDecrypt**), **NTRUSign** m
 | **(F3)** ees1087ep1  | 1087  | 3  | 2048  | 362  | 63  | 63  |
 | **(F4)** ees1499ep1  | 1499  | 3  | 2048  | 499  | 79  | 79  |
 
-### 
+## Generating Key
+- To generate keys. We run the `main.py` with parameter `-g`.
+- To change file name of the keys. We add parameter `-k`. (Default is `ntru`).
+### Example
+- To generate public and private keys with high security, optimized for speed and named "test_key"
+```
+python3 main.py -F4 -g -k test_key
+```
+## Encrypting
+
+## Decrypting
 
 ## Notes
 - This is only just PKE, I will start on KEM later.
