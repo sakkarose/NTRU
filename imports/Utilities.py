@@ -110,11 +110,12 @@ def bit2String(bit):
 
     # Start from last bits to avoid problems with 0
     characterOut = ""
-    for i in range(len(a)//8):
+    for i in range(len(a) // 8):
         if i == 0:
             charbit = a[len(a) - 8:]
         else:
-            charbit = a[-(i + 1)*8 : -i * 8]
-        charbit = int (charbit, 2)
-        characterOut = charbit.to_bytes((charbit.bit_length() + 7) //8, "big").decode("utf-8", errors = "ignore") + characterOut
+            charbit = a[-(i + 1) * 8: -i * 8]
+        charbit = int(charbit, 2)
+        characterOut = charbit.to_bytes((charbit.bit_length() + 7) // 8, "big").decode("utf-8",
+                                                                                       errors="ignore") + characterOut
     return characterOut

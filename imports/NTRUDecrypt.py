@@ -29,7 +29,7 @@ class NTRUDecrypt:
         # Inverse of f mod q
         self.fq = npy.zeros((self.N,), dtype=int)
         # Private polynomial g
-        self.g = npy.zeros((self, N), dtype=int)
+        self.g = npy.zeros((self.N,), dtype=int)
         # Public key polynomial (mod q)
         self.h = npy.zeros((self.N,), dtype=int)
 
