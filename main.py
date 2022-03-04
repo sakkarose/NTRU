@@ -13,19 +13,38 @@ from imports.Utilities import *
 
 # Add input arguments
 prs = argparse.ArgumentParser(prog="NTRUEncrypt & NTRUDecrypt", formatter_class=RawTextHelpFormatter)
-prs.add_argument("-k", "--key-name", default="key", type=str, help="Filename of the public and private keys.\n")
-prs.add_argument("-G", "--Gen", action="store_true", help="Generate the public and private key files.\n")
-prs.add_argument("-M", "--moderate_sec", action="store_true",
-                 help="Generate moderate security keys with N=107, p=3, q=64.\n")
-prs.add_argument("-H", "--high-sec", action="store_true", help="Generate high security keys with N=167, p=3, q=128.\n")
-prs.add_argument("-HH", "--highest-sec", action="store_true",
-                 help="Generate higher security keys with N=503, p=3, q=256.\n")
+prs.add_argument("-k", default="ntru", type=str, help="Filename of the public and private keys.\n")
+prs.add_argument("-g", "--gen", action="store_true", help="Generate the public and private key files.\n")
+prs.add_argument("-S4", action="store_true",
+                 help="Generate high security keys with size optimized.\n")
+prs.add_argument("-S3", action="store_true",
+                 help="Generate moderate security keys with size optimized.\n")
+prs.add_argument("-S2", action="store_true",
+                 help="Generate low security keys with size optimized.\n")
+prs.add_argument("-S1", action="store_true",
+                 help="Generate lowest security keys with size optimized.\n")
+prs.add_argument("-C4", action="store_true",
+                 help="Generate high security keys with cost optimized.\n")
+prs.add_argument("-C3", action="store_true",
+                 help="Generate moderate security keys with cost optimized.\n")
+prs.add_argument("-C2", action="store_true",
+                 help="Generate low security keys with cost optimized.\n")
+prs.add_argument("-C1", action="store_true",
+                 help="Generate lowest security keys with cost optimized.\n")
+prs.add_argument("-F4", action="store_true",
+                 help="Generate high security keys with speed optimized.\n")
+prs.add_argument("-F3", action="store_true",
+                 help="Generate moderate security keys with speed optimized.\n")
+prs.add_argument("-F2", action="store_true",
+                 help="Generate low security keys with speed optimized.\n")
+prs.add_argument("-F1", action="store_true",
+                 help="Generate lowest security keys with speed optimized.\n")
 prs.add_argument("-N", "--N", default=167, type=int, help="The order of the polynomial ring. Default is 503.\n")
 prs.add_argument("-p", "--p", default=3, type=int, help="The smallest inverse polynomial modulus. Default is 3.\n")
 prs.add_argument("-q", "--q", default=128, type=int, help="The largest inverse polynomial modulus. Default is 256.\n")
 prs.add_argument("-df", "--df", default=61, type=int, help="Polynomial f has df 1's and df -1's. Default is 61.\n")
 prs.add_argument("-dg", "--dg", default=20, type=int, help="Polynomial g has dg 1's and -1's. Default is 20.\n")
-prs.add_argument("-d", "--d", default=18, type=int,
+prs.add_argument("-dr", "--dr", default=18, type=int,
                  help="Random obfuscating polynomial has d 1's and -1's. Default 18.\n")
 prs.add_argument("-O", "--out_file", type=str, help="Output file for encrypted/decrypted data/string.\n")
 prs.add_argument("-T", "--out_in_term", action="store_true",
@@ -45,30 +64,30 @@ if __name__ == "__main__":
         a = NTRUDecrypt()
 
         # Set parameters
-        if args.s1:
-            a.setVariables(N=401, p=3, q=64, df=15, dg=12, d=2048)
-        elif args.s2:
-            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
-        elif args.s3:
-            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
-        elif args.s4:
-            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
-        elif args.c1:
-            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
-        elif args.c2:
-            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
-        elif args.c3:
-            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
-        elif args.c4:
-            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
-        elif args.f1:
-            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
-        elif args.f2:
-            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
-        elif args.f3:
-            a.setVariables(N=503, p=3, q=256, df=216, dg=72, d=2048)
+        if args.S1:
+            a.setVariables(N=401, p=3, q=2048, df=15, dg=12, dr=2048)
+        elif args.S2:
+            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+        elif args.S3:
+            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+        elif args.S4:
+            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+        elif args.C1:
+            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+        elif args.C2:
+            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+        elif args.C3:
+            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+        elif args.C4:
+            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+        elif args.F1:
+            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+        elif args.F2:
+            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+        elif args.F3:
+            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
         else:
-            a.setVariables(N=167, p=3, q=128, df=61, dg=20, d=2048)
+            a.setVariables(N=167, p=3, q=2048, df=61, dg=20, dr=2048)
 
         a.genPubPri(args.key_name)
         print('Time generating both keys: ', datetime.now() - start)
