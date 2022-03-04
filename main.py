@@ -13,31 +13,31 @@ from imports.Utilities import *
 
 # Add input arguments
 prs = argparse.ArgumentParser(prog="NTRUEncrypt & NTRUDecrypt", formatter_class=RawTextHelpFormatter)
-prs.add_argument("-k", default="ntru", type=str, help="Filename of the public and private keys.\n")
-prs.add_argument("-g", "--gen", action="store_true", help="Generate the public and private key files.\n")
-prs.add_argument("-S4", action="store_true",
+prs.add_argument("-k", "--key_name", default="ntru", type=str, help="Filename of the public and private keys.\n")
+prs.add_argument("-g", "--key_gen", action="store_true", help="Generate the public and private key files.\n")
+prs.add_argument("-S4", "--S4", action="store_true",
                  help="Generate high security keys with size optimized.\n")
-prs.add_argument("-S3", action="store_true",
+prs.add_argument("-S3", "--S3", action="store_true",
                  help="Generate moderate security keys with size optimized.\n")
-prs.add_argument("-S2", action="store_true",
+prs.add_argument("-S2", "--S2", action="store_true",
                  help="Generate low security keys with size optimized.\n")
-prs.add_argument("-S1", action="store_true",
+prs.add_argument("-S1", "--S1", action="store_true",
                  help="Generate lowest security keys with size optimized.\n")
-prs.add_argument("-C4", action="store_true",
+prs.add_argument("-C4", "--C4", action="store_true",
                  help="Generate high security keys with cost optimized.\n")
-prs.add_argument("-C3", action="store_true",
+prs.add_argument("-C3", "--C3", action="store_true",
                  help="Generate moderate security keys with cost optimized.\n")
-prs.add_argument("-C2", action="store_true",
+prs.add_argument("-C2", "--C2", action="store_true",
                  help="Generate low security keys with cost optimized.\n")
-prs.add_argument("-C1", action="store_true",
+prs.add_argument("-C1", "--C1", action="store_true",
                  help="Generate lowest security keys with cost optimized.\n")
-prs.add_argument("-F4", action="store_true",
+prs.add_argument("-F4", "--F4", action="store_true",
                  help="Generate high security keys with speed optimized.\n")
-prs.add_argument("-F3", action="store_true",
+prs.add_argument("-F3", "--F3", action="store_true",
                  help="Generate moderate security keys with speed optimized.\n")
-prs.add_argument("-F2", action="store_true",
+prs.add_argument("-F2", "--F2", action="store_true",
                  help="Generate low security keys with speed optimized.\n")
-prs.add_argument("-F1", action="store_true",
+prs.add_argument("-F1", "--F1", action="store_true",
                  help="Generate lowest security keys with speed optimized.\n")
 prs.add_argument("-N", "--N", default=1499, type=int, help="The order of the polynomial ring. Default is 1499.\n")
 prs.add_argument("-p", "--p", default=3, type=int, help="The smallest inverse polynomial modulus. Default is 3.\n")
@@ -46,15 +46,14 @@ prs.add_argument("-df", "--df", default=499, type=int, help="Polynomial f has df
 prs.add_argument("-dg", "--dg", default=79, type=int, help="Polynomial g has dg 1's and -1's. Default is 79.\n")
 prs.add_argument("-dr", "--dr", default=79, type=int,
                  help="Random polynomial has d 1's and -1's. Default 79.\n")
-prs.add_argument("-O", "--out_file", type=str, help="Output file for encrypted/decrypted data/string.\n")
-prs.add_argument("-T", "--out_term", action="store_true",
+prs.add_argument("-o", "--out_file", type=str, help="Output file for encrypted/decrypted data/string.\n")
+prs.add_argument("-t", "--out_term", action="store_true",
                  help="Output encrypted/decrypted data/string to terminal.\n")
 # String must be given in quotation marks for -eS and -dS
-# -dS and -dF require a known public key
-prs.add_argument("-eS", "--Enc_string", type=str, help="Encrypt the string given as an input.\n")
-prs.add_argument("-eF", "--Enc_file", type=str, help="Encrypt the string given in this input file.\n")
-prs.add_argument("-dS", "--Dec_string", type=str, help="Decrypt the string given as an input.\n")
-prs.add_argument("-dF", "--Dec_file", type=str, help="Decrypt the string given in this input file.\n")
+prs.add_argument("-es", "--en_str", type=str, help="Encrypt the string given as an input.\n")
+prs.add_argument("-ef", "--en_file", type=str, help="Encrypt the string given in this input file.\n")
+prs.add_argument("-ds", "--de_str", type=str, help="Decrypt the string given as an input.\n")
+prs.add_argument("-df", "--de_file", type=str, help="Decrypt the string given in this input file.\n")
 
 args = prs.parse_args()
 if __name__ == "__main__":
@@ -115,14 +114,14 @@ if __name__ == "__main__":
         b.readpubK(args.key_name + ".pub")
 
         # Extract data to encrypt
-        if args.Enc_string:
-            to_encrypt = args.Enc_string
-        elif args.Enc_file:
+        if args.es:
+            to_encrypt = args.es
+        elif args.ef:
             # Check if the file exists
-            if not exists(args.Enc_file):
-                sys.exit("Error : Input file '" + args.Enc_file + "' not found.")
+            if not exists(args.ef):
+                sys.exit("Error : Input file '" + args.ef + "' not found.")
             # If it does then read all the data from it
-            with open(args.Enc_file, "r") as f:
+            with open(args.ef, "r") as f:
                 to_encrypt = "".join(f.readlines())
 
         # Encrypt data
@@ -131,7 +130,7 @@ if __name__ == "__main__":
         start = 0
 
         # Output the encrypted data
-        if args.out_in_term:
+        if args.out_term:
             print(b.saveM)
         elif args.out_file:
             # Write data to output file
