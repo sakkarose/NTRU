@@ -1,5 +1,4 @@
 import sys
-
 import numpy as npy
 from sympy import Poly, symbols
 from imports.Utilities import *
@@ -84,7 +83,7 @@ class NTRUEncrypt:
         # Encrypting part
         self.e = npy.array(
             ((((Poly(self.r, x) * Poly(self.h, x)).trunc(self.q)) + Poly(self.m, x)) % Poly(self.I, x)).trunc(
-            self.q).all_coeffs(), dtype=int)
+                self.q).all_coeffs(), dtype=int)
         self.e = padArray(self.e, self.N)
 
     def encryptString(self, M):

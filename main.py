@@ -88,6 +88,7 @@ if __name__ == "__main__":
         start = datetime.now()
         a.genPubPri(args.key_name)
         print('Time generating both keys: ', datetime.now() - start)
+        print("\n")
         start = 0
 
         # Encrypt data using given public key
@@ -113,7 +114,7 @@ if __name__ == "__main__":
 
         # Extract data to encrypt
         if args.en_str:
-            to_encrypt = args.es
+            to_encrypt = args.en_str
         elif args.en_file:
             # Check if the file exists
             if not exists(args.en_file):
@@ -125,6 +126,7 @@ if __name__ == "__main__":
         # Encrypt data
         b.encryptString(to_encrypt)
         print('Time encrypting data: ', datetime.now() - start)
+        print("\n")
         start = 0
 
         # Output the encrypted data
@@ -143,23 +145,23 @@ if __name__ == "__main__":
             sys.exit("Error : Public key '" + args.key_name + ".pri' not found.")
 
         # One input to decrypt only
-        if args.de_string and args.de_file:
+        if args.de_str and args.de_file:
             sys.exit("Error : More than one input to decrypt given.")
 
         # We need an output method specified
         if not args.out_file and not args.out_term:
             sys.exit("Error : At least one output method must be specified.")
 
-        start = datetime.now()
         # Then initialise a decryption class
         D = NTRUDecrypt()
 
         # And read the public key
+        start = datetime.now()
         D.readPri(args.key_name + ".pri")
 
         # Extract the data to decrypt
-        if args.de_string:
-            to_decrypt = args.de_string
+        if args.de_str:
+            to_decrypt = args.de_str
         elif args.de_file:
             # Need to check if the file exists
             if not exists(args.de_file):
@@ -171,6 +173,7 @@ if __name__ == "__main__":
         # Then decrypt the string
         D.decryptString(to_decrypt)
         print('Time decrypting data: ', datetime.now() - start)
+        print("\n")
         start = 0
 
         # And output the decrypted data
