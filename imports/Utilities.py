@@ -21,11 +21,6 @@ def primeCheck(num):
     return True
 
 
-# Pad a numpy integer to a numpy array with leading zeros.
-def padArray(a_in, a_out_size):
-    return npy.pad(a_in, (a_out_size - len(a_in), 0), constant_values=0)
-
-
 # Get the inverse of the polynomial (poly_in) in the Galois field, GF(poly_mod)
 def polynomialInverse(poly_in, poly_I, poly_mod):
     x = symbols('x')
@@ -55,6 +50,11 @@ def polynomialInverse(poly_in, poly_I, poly_mod):
         sys.exit("Error : Error in polynomial inverse calculation !")
 
     return padArray(npy.array(Poly(inv, x).all_coeffs(), dtype=int), Npoly_I - 1)
+
+
+# Pad a numpy integer to a numpy array with leading zeros.
+def padArray(a_in, a_out_size):
+    return npy.pad(a_in, (a_out_size - len(a_in), 0), constant_values=0)
 
 
 # Generate a numpy array for f, p and r. L is length, P for 1 and M for -1, the remaining is 0
