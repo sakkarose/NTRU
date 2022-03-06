@@ -64,29 +64,29 @@ if __name__ == "__main__":
 
         # Set parameters
         if args.S1:
-            a.setVariables(N=401, p=3, q=2048, df=15, dg=12, dr=2048)
+            a.setVariables(N=401, p=3, q=2048, df=133, dg=133, dr=133)
         elif args.S2:
-            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+            a.setVariables(N=449, p=3, q=2048, df=149, dg=134, dr=134)
         elif args.S3:
-            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+            a.setVariables(N=677, p=3, q=2048, df=225, dg=157, dr=157)
         elif args.S4:
-            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+            a.setVariables(N=1087, p=3, q=2048, df=361, dg=120, dr=120)
         elif args.C1:
-            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+            a.setVariables(N=541, p=3, q=2048, df=180, dg=49, dr=49)
         elif args.C2:
-            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+            a.setVariables(N=613, p=3, q=2048, df=204, dg=55, dr=55)
         elif args.C3:
-            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+            a.setVariables(N=887, p=3, q=2048, df=295, dg=81, dr=81)
         elif args.C4:
-            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+            a.setVariables(N=1171, p=3, q=2048, df=390, dg=106, dr=106)
         elif args.F1:
-            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+            a.setVariables(N=659, p=3, q=2048, df=219, dg=38, dr=38)
         elif args.F2:
-            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+            a.setVariables(N=761, p=3, q=2048, df=253, dg=42, dr=42)
         elif args.F3:
-            a.setVariables(N=503, p=3, q=2048, df=216, dg=72, dr=2048)
+            a.setVariables(N=1087, p=3, q=2048, df=362, dg=63, dr=63)
         else:
-            a.setVariables(N=167, p=3, q=2048, df=61, dg=20, dr=2048)
+            a.setVariables(N=1499, p=3, q=2048, df=499, dg=79, dr=79)
 
         a.genPubPri(args.key_name)
         print('Time generating both keys: ', datetime.now() - start)
