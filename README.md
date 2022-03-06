@@ -49,16 +49,28 @@ python3 main.py -F4 -g -k test_key
 python3 main.py -g -N 1499 -p 3 -q 2048 -dg 499 -df 79 -dr 79
 ```
 ## Encrypting
-- 
+- To encrypt a string, use `-esr`, and `-efi` for a file
+- To define the output, you can use `-of` to write it in a file, and `-ot` will print the output to the screen.
 ### Example
--
+- To encrypt a string "Hello" with key named "test_key" and print the output on the screen.
 ```
+python3 main.py -k test_key -esr "Hello" -ot
+```
+- To encrypt a file named "Hi.txt" with key named "test_key" and write it in the file named "post_hi.bin"
+```
+python3 main.py -k test_key -efi Hi.txt -of post_hi.bin
 ```
 ## Decrypting
--
+- Same for encrypting, we have `-dsr` for a string and `-dfi` for a file.
+- Both `-of` and `-ot`are also working for decrypting too.
 ### Example
--
+- To decrypt a string "Hello" with key named "test_key" and print the output on the screen.
 ```
+python3 main.py -k test_key -es "Hello" -ot
+```
+- To decrypt a file named "Hi.txt" with key named "test_key" and write it in the file named "post_hi.bin"
+```
+python3 main.py -k test_key -ef Hi.txt -of post_hi.bin
 ```
 ## Notes
 - This is only just PKE, I will start on KEM later.
