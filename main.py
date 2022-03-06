@@ -59,7 +59,6 @@ args = prs.parse_args()
 if __name__ == "__main__":
     # Generate public and private keys with input flags
     if args.key_gen:
-        start = datetime.now()
         a = NTRUDecrypt()
 
         # Set parameters
@@ -88,6 +87,7 @@ if __name__ == "__main__":
         else:
             a.setVariables(N=1499, p=3, q=2048, df=499, dg=79, dr=79)
 
+        start = datetime.now()
         a.genPubPri(args.key_name)
         print('Time generating both keys: ', datetime.now() - start)
         start = 0
@@ -106,11 +106,11 @@ if __name__ == "__main__":
         if not args.out_file and not args.out_term:
             sys.exit("Error : Missing output method.")
 
-        start = datetime.now()
         # Initialise encryption class
         b = NTRUEncrypt()
 
         # Read public key
+        start = datetime.now()
         b.readpubK(args.key_name + ".pub")
 
         # Extract data to encrypt
