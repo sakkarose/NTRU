@@ -46,8 +46,8 @@ prs.add_argument("-df", "--df", default=499, type=int, help="Polynomial f has df
 prs.add_argument("-dg", "--dg", default=79, type=int, help="Polynomial g has dg 1's and -1's. Default is 79.\n")
 prs.add_argument("-dr", "--dr", default=79, type=int,
                  help="Random polynomial has d 1's and -1's. Default 79.\n")
-prs.add_argument("-o", "--out_file", type=str, help="Output file for encrypted/decrypted data/string.\n")
-prs.add_argument("-t", "--out_term", action="store_true",
+prs.add_argument("-of", "--out_file", type=str, help="Output file for encrypted/decrypted data/string.\n")
+prs.add_argument("-ot", "--out_term", action="store_true",
                  help="Output encrypted/decrypted data/string to terminal.\n")
 # String must be given in quotation marks for -eS and -dS
 prs.add_argument("-es", "--en_str", type=str, help="Encrypt the string given as an input.\n")
