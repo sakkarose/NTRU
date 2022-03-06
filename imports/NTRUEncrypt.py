@@ -6,14 +6,14 @@ from imports.Utilities import *
 
 
 class NTRUEncrypt:
-    def __init__(self, N=503, p=3, q=256, dr=18):
+    def __init__(self, N=1499, p=3, q=2048, dr=79):
         # Public N, p and q
         self.N = N
         self.p = p
         self.q = q
 
         # Number of 1s in r
-        self.oneofr = dr
+        self.dr = dr
 
         # Private key polynomial g
         self.g = npy.zeros((self.N,), dtype=int)
@@ -48,7 +48,7 @@ class NTRUEncrypt:
             self.p = int(o.readline().split(" ")[-1])
             self.q = int(o.readline().split(" ")[-1])
             self.N = int(o.readline().split(" ")[-1])
-            self.oneofr = int(o.readline().split(" ")[-1])
+            self.dr = int(o.readline().split(" ")[-1])
             self.h = npy.zeros((self.N + 1,), dtype=int)
         self.I = npy.zeros((self.N + 1,), dtype=int)
         self.I[self.N] = -1
@@ -58,7 +58,7 @@ class NTRUEncrypt:
 
     # Generate random polynomial array r, with mod q
     def generateRandomPoly(self):
-        self.r = generateRandom1n0(self.N, self.oneofr, self.oneofr)
+        self.r = generateRandom1n0(self.N, self.dr, self.dr)
 
     # Suitable checks on message, then set it
     def setMessageM(self, M):

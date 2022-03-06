@@ -49,7 +49,6 @@ prs.add_argument("-dr", "--dr", default=79, type=int,
 prs.add_argument("-of", "--out_file", type=str, help="Output file for encrypted/decrypted data/string.\n")
 prs.add_argument("-ot", "--out_term", action="store_true",
                  help="Output encrypted/decrypted data/string to terminal.\n")
-# String must be given in quotation marks for -eS and -dS
 prs.add_argument("-estr", "--en_str", type=str, help="Encrypt the string given as an input.\n")
 prs.add_argument("-efile", "--en_file", type=str, help="Encrypt the string given in this input file.\n")
 prs.add_argument("-dstr", "--de_str", type=str, help="Decrypt the string given as an input.\n")

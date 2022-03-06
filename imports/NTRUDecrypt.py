@@ -6,7 +6,7 @@ from imports.Utilities import *
 
 
 class NTRUDecrypt:
-    def __init__(self, N=503, p=3, q=256, df=61, dg=20, dr=18):
+    def __init__(self, N=1499, p=3, q=2048, df=499, dg=79, dr=79):
 
         # Public N, order of the polynomial ring
         self.N = N
@@ -20,7 +20,7 @@ class NTRUDecrypt:
         # Number of coefficients 1 in polynomial g
         self.dg = dg
         # Number of coefficients 1 in random polynomial r
-        self.oneofr = dr
+        self.dr = dr
 
         # Private polynomial f
         self.f = npy.zeros((self.N,), dtype=int)
@@ -57,7 +57,7 @@ class NTRUDecrypt:
                     if 2 * self.dg > N:
                         sys.exit("\n\nError : N too small")
                 if dr is None:
-                    if 2 * self.oneofr > N:
+                    if 2 * self.dr > N:
                         sys.exit("\n\nError : N too small")
                 # If N is okay, initialise the polynomial arrays
                 self.N = N
@@ -99,7 +99,7 @@ class NTRUDecrypt:
             if 2 * dr > self.N:
                 sys.exit("\n\nError : dr is needed to be 2 * dr > N\n\n")
             else:
-                self.oneofr = dr
+                self.dr = dr
 
     # Invert the f polynomial with p and q
     def invertf(self):
@@ -141,7 +141,7 @@ class NTRUDecrypt:
     # Write public key
     def writePub(self, filename="key"):
         pubHead = "p ::: " + str(self.p) + "\nq ::: " + str(self.q) + "\nN ::: " + str(self.N) + "\ndr ::: " + str(
-            self.oneofr) + "\nh :::"
+            self.dr) + "\nh :::"
         npy.savetxt(filename + ".pub", self.h, newline=" ", header=pubHead, fmt="%s")
 
     # Read public key
@@ -150,7 +150,7 @@ class NTRUDecrypt:
             self.p = int(f.readline().split(" ")[-1])
             self.q = int(f.readline().split(" ")[-1])
             self.N = int(f.readline().split(" ")[-1])
-            self.oneofr = int(f.readline().split(" ")[-1])
+            self.dr = int(f.readline().split(" ")[-1])
             self.h = npy.array(f.readline().split(" ")[3:-1], dtype=int)
         self.I = npy.zeros((self.N + 1,), dtype=int)
         self.I[self.N] = -1
@@ -159,7 +159,7 @@ class NTRUDecrypt:
     # Write private key
     def writePri(self, filename="key"):
         priHead = "p ::: " + str(self.p) + "\nq ::: " + str(self.q) + "\nN ::: " + str(self.N) + "\ndf ::: " + str(
-            self.df) + "\ndg ::: " + str(self.dg) + "\ndr ::: " + str(self.oneofr) + "\nf/fp/fq/g :::"
+            self.df) + "\ndg ::: " + str(self.dg) + "\ndr ::: " + str(self.dr) + "\nf/fp/fq/g :::"
         npy.savetxt(filename + ".pri", (self.f, self.fp, self.fq, self.g), header=priHead, newline="\n", fmt="%s")
 
     # Read private key
@@ -170,7 +170,7 @@ class NTRUDecrypt:
             self.N = int(f.readline().split(" ")[-1])
             self.df = int(f.readline().split(" ")[-1])
             self.dg = int(f.readline().split(" ")[-1])
-            self.oneofr = int(f.readline().split(" ")[-1])
+            self.dr = int(f.readline().split(" ")[-1])
 
             temp = f.readline()
 
