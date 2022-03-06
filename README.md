@@ -64,13 +64,13 @@ python3 main.py -k test_key -efile Hi.txt -of post_hi.bin
 - Same for encrypting, we have `-dstr` for a string and `-dfile` for a file.
 - Both `-of` and `-ot`are also working for decrypting too.
 ### Example
-- To decrypt a string "Hello" with key named "test_key" and print the output on the screen.
+- To decrypt a cyphertext of "Hello" we did earlier with key named "test_key" and print the output on the screen.
 ```
-python3 main.py -k test_key -dstr "Hello" -ot
+python3 main.py -k test_key -dstr "12 -16 18 -4 -15 -28 -23 -20 31 31 -13 7 9 21 -2 4 25 -20 -14 -30 13 3 1 -10 -9 27 -20 -13 5 -31 -13 15 3 -22 13 -2 21 -19 -27 20 -31 25 -14 -3 3 -15 -11 18 -22 -1 -31 -3 -7 21 20 19 -25 -11 25 24 32 -21 -14 -10 19 -15 -26 17 -12 -17 8 -5" -ot
 ```
-- To decrypt a file named "Hi.txt" with key named "test_key" and write it in the file named "post_hi.bin"
+- To decrypt a file named "post_hi.bin" with key named "test_key" and write it in the file named "post_post_hi.bin"
 ```
-python3 main.py -k test_key -dfile Hi.txt -of post_hi.bin
+python3 main.py -k test_key -dfile Hi.txt -of post_post_hi.bin
 ```
 ## Notes
 - This is only just PKE, I will start on KEM later.
