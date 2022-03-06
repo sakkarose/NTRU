@@ -96,7 +96,7 @@ class NTRUDecrypt:
                 self.dg = dg
 
         if dr is not None:
-            if 2 * d > self.N:
+            if 2 * dr > self.N:
                 sys.exit("\n\nError : dr is needed to be 2 * dr > N\n\n")
             else:
                 self.oneofr = dr
