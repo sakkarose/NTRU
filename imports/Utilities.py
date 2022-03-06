@@ -1,6 +1,5 @@
 import sys
-# import random
-
+import random
 import numpy as npy
 from math import log
 from sympy import Poly, symbols, GF, invert

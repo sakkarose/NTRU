@@ -6,7 +6,6 @@ import argparse
 from argparse import RawTextHelpFormatter
 
 import numpy as npy
-
 from imports.NTRUEncrypt import NTRUEncrypt
 from imports.NTRUDecrypt import NTRUDecrypt
 from imports.Utilities import *
