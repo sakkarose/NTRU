@@ -73,8 +73,6 @@ python3 main.py -k test_key -dstr "12 -16 18 -4 -15 -28 -23 -20 31 31 -13 7 9 21
 python3 main.py -k test_key -dfile Hi.txt -of post_post_hi.bin
 ```
 ## Notes
-- This is only just PKE, I will start on KEM later.
-- More details will be added when this one is finished.
 
 ## References
 [1](https://ieeexplore.ieee.org/document/4800404) : "IEEE Standard Specification for Public Key Cryptographic Techniques Based on Hard Problems over Lattices," in IEEE Std 1363.1-2008 , vol., no., pp.1-81, 10 March 2009, doi: 10.1109/IEEESTD.2009.4800404.
