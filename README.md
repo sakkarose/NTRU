@@ -4,9 +4,9 @@ Just a simple implementation of **NTRU** which is one of the **Round-3 Finalists
 
 At the moment, there is only **NTRUEncrypt** (& **NTRUDecrypt**), 
 
-## To-do
+## To-do & Work-in-progress
 - Working on **NTRUSign**.
-- For NTRU's **kem** & **ss-kem** algorithm, this program needs to be reworked in order to handle them. 
+- Resolving this program's poor performance on **kem** & **ss-kem** algorithm, so this program needs to be reworked in order to handle them. 
 
 ## Installation
 - No installation needed, but you need to have `sympy` and `numpy` in python.
