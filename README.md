@@ -6,7 +6,7 @@ At the moment, there is only **NTRUEncrypt** (& **NTRUDecrypt**),
 
 ## To-do & Work-in-progress
 - Working on **NTRUSign**.
-- Resolving this program's poor performance on **kem** & **ss-kem** algorithm, so this program needs to be reworked in order to handle them. 
+- Resolving this program's poor performance on **kem** & **ss-kem** algorithm, so it needs to be reworked in order to handle them. 
 
 ## Installation
 - No installation needed, but you need to have `sympy` and `numpy` in python.
