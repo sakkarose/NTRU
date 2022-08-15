@@ -4,7 +4,7 @@ Just a simple implementation of **NTRU** which is one of the **Round-3 Finalists
 
 Moreover the post-quantum security parameters are suggested from **IEEE p1363.1 Standard** [1].
 
-At the moment, there is only **NTRUEncrypt** (& **NTRUDecrypt**), 
+At the moment, there is only **NTRUEncrypt** (& **NTRUDecrypt**).
 
 ## To-do & Work-in-progress
 - Working on **NTRUSign**.
